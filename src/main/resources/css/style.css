@@ -1,1 +1,32 @@
 @import url('clash-display.css');
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.logo {
+    max-width: 300px;
+}
+
+h1 {
+    font-family: ClashDisplay-Light, sans-serif;
+    color: gold;
+}
+
+p {
+    font-family: ClashDisplay-Variable, sans-serif;
+    color: gold;
+    font-size: large;
+}
+
+a {
+    font-family: ClashDisplay-Extralight, sans-serif;
+    color: gold;
+    font-size: large;
+}
