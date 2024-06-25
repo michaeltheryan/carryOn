@@ -2,9 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="appleid-signin-client-id" content="[CLIENT_ID]">
+    <meta name="appleid-signin-scope" content="[SCOPES]">
+    <meta name="appleid-signin-redirect-uri" content="[REDIRECT_URI]">
+    <meta name="appleid-signin-state" content="[STATE]">
     <title>Create Account</title>
 </head>
+<style>
+    .signin-button {
+        width: 210px;
+        height: 40px;
+    }
+</style>
 <body>
+    <header>
+        <div>
+            <img src="/media/logo.png" alt="company logo"  class="logo">
+        </div>
+        <div id="navbar"></div>
+    </header>
+    <div class="fb-example">
+        <h1>Create an account</h1>
+        <form action="user-verfication" method="post">
+            <ul>
+                <li>
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                    <label for="first-name"></label>
+                </li>
+                <li>
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+                    <label for="last-name"></label>
+                </li>
+                <li>
+                    <input type="email" id="email" name="email" placeholder="Email" pattern="^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$\gm" required>
+                    <label for="password"></label>
+                </li>
+                <li>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <label for="password"></label>
+                </li>
+                <li>
+                    <button type="submit">Create Account</button>
+                </li>
+            </ul>
+        </form>
+        <p>or</p>
+        <div id="appleid-signin" class="signin-button" data-color="white" data-border="true" data-type="sign-in"></div>
+        <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+        <p>
+            <label for="stay-in-drop">Stay signed in</label>
+            <select id="stay-in-drop" name="stay-in-drop">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </p>
+
+    </div>
 <!--
 grid
 
@@ -28,4 +82,5 @@ User Privacy Notice
 optional payment information
 -->
 </body>
+<script src="/scripts/script.js"></script>
 </html>
