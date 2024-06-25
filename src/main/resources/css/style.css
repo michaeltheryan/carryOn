@@ -17,9 +17,15 @@ nav {
     max-width: 300px;
 }
 
-h1 {
+h1, h2 {
     font-family: ClashDisplay-Light, sans-serif;
     color: gold;
+}
+
+caption {
+    font-family: ClashDisplay-Regular, sans-serif;
+    color: gold;
+    font-size: large;
 }
 
 p {
@@ -36,4 +42,52 @@ a {
 
 form {
     font-family: ClashDisplay-Variable, sans-serif;
+    color: gold;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid gold;
+    text-align: center;
+}
+
+thead th:nth-child(1) {
+    width: min-content;
+    text-align: start;
+    word-wrap: break-word;
+}
+
+thead th:nth-child(2) {
+    width: min-content;
+    word-wrap: break-word;
+}
+
+thead th:nth-child(3) {
+    width: min-content;
+    word-wrap: break-word;
+}
+
+thead th:nth-child(4) {
+    width: min-content;
+    word-wrap: break-word;
+}
+
+thead th:nth-child(5) {
+    width: min-content;
+    word-wrap: break-word;
+}
+
+thead th:nth-child(6) {
+    width: min-content;
+    word-wrap: break-word;
+}
+
+th, td {
+    font-family: ClashDisplay-Extralight, sans-serif;
+    font-size: 1.25vw;
+    color: gold;
+    padding: 20px;
+    word-wrap: break-word;
 }
