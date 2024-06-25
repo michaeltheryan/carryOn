@@ -1,5 +1,8 @@
 @import url('clash-display.css');
 
+body {
+    background-color: black;
+}
 header {
     display: flex;
     justify-content: space-between;
@@ -29,4 +32,8 @@ a {
     font-family: ClashDisplay-Extralight, sans-serif;
     color: gold;
     font-size: large;
+}
+
+form {
+    font-family: ClashDisplay-Variable, sans-serif;
 }
