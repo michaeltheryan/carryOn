@@ -20,6 +20,7 @@ nav {
 h1, h2 {
     font-family: ClashDisplay-Light, sans-serif;
     color: gold;
+    font-size: large;
 }
 
 caption {
@@ -90,4 +91,20 @@ th, td {
     color: gold;
     padding: 20px;
     word-wrap: break-word;
+}
+
+.fb-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+form li + li {
+    margin-top: 1em;
 }

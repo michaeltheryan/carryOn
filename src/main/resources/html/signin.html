@@ -16,22 +16,32 @@
     }
 </style>
 <body>
-    <img src="/media/logo.png" alt="company logo"  class="logo">
-    <h1>Sign in or <a href="registration.html">create an account</a> </h1>
-    <form action="user-verfication" method="post">
-        <input type="text" id="name" name="name" placeholder="Name" required>
-        <label for="name"></label>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <label for="password"></label>
-        <button type="submit">Continue</button>
-    </form>
-    <p>or</p>
-    <div id="appleid-signin" class="signin-button" data-color="white" data-border="true" data-type="sign-in"></div>
-    <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
-    <p>
-        <input type="checkbox" id="stay-in" name="stay-in">
-        <label for="stay-in">Stay signed in</label>
-    </p>
+    <div class="fb-example">
+        <img src="/media/logo.png" alt="company logo"  class="logo">
+        <h1>Sign in or <a href="registration.html" class="h1-link">create an account</a> </h1>
+        <form action="user-verfication" method="post">
+            <ul>
+                <li>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <label for="name"></label>
+                </li>
+                <li>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <label for="password"></label>
+                </li>
+                <li>
+                    <button type="submit">Continue</button>
+                </li>
+            </ul>
+        </form>
+        <p>or</p>
+        <div id="appleid-signin" class="signin-button" data-color="white" data-border="true" data-type="sign-in"></div>
+        <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+        <p>
+            <input type="checkbox" id="stay-in" name="stay-in">
+            <label for="stay-in">Stay signed in</label>
+        </p>
+    </div>
 <!--
 flexbox
 
