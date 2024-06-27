@@ -1,15 +1,15 @@
 @import url('clash-display.css');
 
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background-color: black;
-    font-family: ClashDisplay-Extralight sans-serif;
-    color: gold;
+    background-color: #0098DB;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FFFFFF;
     width: 100%;
     height: 100%;
 }
@@ -30,8 +30,8 @@ header {
     display: flex;
     justify-content: space-evenly;
     flex-grow: 1;
-    font-family: ClashDisplay-Extralight sans-serif;
-    color: gold;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FFFFFF;
 }
 
 nav {
@@ -40,43 +40,51 @@ nav {
 }
 
 .logo {
-    max-width: 300px;
+    max-width: 75px;
+}
+
+#company {
+    font-family: ClashDisplay-Semibold, sans-serif;
+    color: #FFFFFF;
+    font-size: xxx-large;
 }
 
 h1, h2 {
-    font-family: ClashDisplay-Light, sans-serif;
-    color: gold;
-    font-size: large;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FFFFFF;
+    font-size: xx-large;
 }
 
 caption {
-    font-family: ClashDisplay-Regular, sans-serif;
-    color: gold;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FFFFFF;
     font-size: xx-large;
 }
 
 p {
-    font-family: ClashDisplay-Variable, sans-serif;
-    color: gold;
+    margin: 10px 0;
+    padding: 5px;
+    font-family: "Helvetica Neue",sans-serif;
+    color: #FFFFFF;
     font-size: large;
 }
 
 a {
-    font-family: ClashDisplay-Extralight, sans-serif;
-    color: gold;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FFFFFF;
     font-size: large;
 }
 
 form {
-    font-family: ClashDisplay-Variable, sans-serif;
-    color: gold;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FFFFFF;
 }
 
 table {
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid gold;
+    border: 1px solid white;
     text-align: center;
 }
 
@@ -112,9 +120,9 @@ thead th:nth-child(6) {
 }
 
 th, td {
-    font-family: ClashDisplay-Extralight, sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 1.25vw;
-    color: gold;
+    color: #FFFFFF;
     padding: 20px;
     word-wrap: break-word;
 }
