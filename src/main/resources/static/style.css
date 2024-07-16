@@ -2,6 +2,7 @@ body{
     background-repeat: no-repeat;
     background-size: 400px;
     background-attachment: fixed;
+    background-color: #0098DB;
 }
 body.about{
     background-image: url("/static/leather_bag.jpg");
