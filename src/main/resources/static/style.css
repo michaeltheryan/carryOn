@@ -1,0 +1,44 @@
+body{
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-attachment: fixed;
+}
+body.about{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.auction{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.complete{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.contact{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.create{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.error{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.index{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.login{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.search{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.results{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.agreement{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.privacy{
+    background-image: url("/static/leather_bag.jpg");
+}
+body.profile{
+    background-image: url("/static/leather_bag.jpg");
+}
