@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "helvetica", sans-serif;
+    color: white;
+}
 body{
     background-repeat: no-repeat;
     background-size: 400px;
@@ -5,41 +11,92 @@ body{
     background-color: #0098DB;
 }
 body.about{
-    background-image: url("/static/leather_bag.jpg");
 }
 body.auction{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.complete{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.contact{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.create{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.error{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.index{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.login{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.search{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.results{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.agreement{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.privacy{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.profile{
-    background-image: url("/static/leather_bag.jpg");
+    background-image: url("/static/luggage/leather_bag.jpg");
+}
+img.logo{
+    width: 79px;
+    height: 81px
+}
+nav{
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+}
+div > img{
+    height: 100%;
+    object-fit: cover;
+    align-self: center;
+}
+div.bio > p{
+    color: lightblue;
+    text-align: center;
+    font-size: xxx-large;
+}
+div.logo{
+    font-size: xxx-large;
+}
+div.navigation{
+    color:lightblue;
+}
+div.navigation:hover{
+    color:white;
+}
+div.navigation::after{
+    content: "";
+    display: block;
+    height: 3px;
+    background: #a0ebfd;
+    width: 0;
+    transition: all ease-in-out 300ms;
+}
+div.navigation:hover::after{
+    width: 100%;
+}
+div.staff{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 30vw));
+    grid-template-rows: repeat(3, minmax(200px, .5fr)  minmax(200px, .25fr));
+    grid-gap: 16px;
+    align-items: end;
+    justify-items: center;
+}
+img.about{
+    opacity: .5;
 }
