@@ -3,9 +3,6 @@
     padding: 0;
     font-family: "helvetica", sans-serif;
 }
-.hidden {
-    display: none;
-}
 body{
     background-repeat: no-repeat;
     background-size: 400px;
@@ -57,6 +54,7 @@ body.error > img.error{
 }
 body.index{
     background-color: transparent;
+    color: darkblue;
 }
 body.index > img.index{
     opacity: 0.4;
@@ -69,7 +67,17 @@ body.index > img.index{
     z-index: -1;
 }
 body.login{
-    background-image: url("/static/luggage/leather_bag.jpg");
+    background-color: transparent;
+}
+body.login > img.login{
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
 }
 body.search{
     background-image: url("/static/luggage/leather_bag.jpg");
@@ -170,6 +178,22 @@ body.auction > main.auction_top > section.auction{
     align-items: flex-start;
 }
 body.auction > section.auction_bottom > section.auction{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+.hidden {
+    display: none;
+}
+.tabs {
+    overflow: hidden;
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+}
+#signin{
     display: flex;
     flex-flow: column wrap;
     align-content: flex-start;
