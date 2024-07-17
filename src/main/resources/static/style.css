@@ -40,7 +40,20 @@ body.contact{
     background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.error{
+    background-color: transparent;
+    color: darkblue;
+    font-size: 200%;
+}
+body.error > img.error{
     background-image: url("/static/luggage/leather_bag.jpg");
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
 }
 body.index{
     background-image: url("/static/luggage/leather_bag.jpg");
