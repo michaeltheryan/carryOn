@@ -3,6 +3,9 @@
     padding: 0;
     font-family: "helvetica", sans-serif;
 }
+.hidden {
+    display: none;
+}
 body{
     background-repeat: no-repeat;
     background-size: 400px;
@@ -34,9 +37,6 @@ body.complete{
     background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.contact{
-    background-image: url("/static/luggage/leather_bag.jpg");
-}
-body.create{
     background-image: url("/static/luggage/leather_bag.jpg");
 }
 body.error{
