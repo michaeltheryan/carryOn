@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: "helvetica", sans-serif;
-    color: white;
 }
 body{
     background-repeat: no-repeat;
@@ -11,9 +10,25 @@ body{
     background-color: #0098DB;
 }
 body.about{
+    color: white;
 }
 body.auction{
-    background-image: url("/static/luggage/leather_bag.jpg");
+    color: darkblue;
+    background-color: transparent;
+    font-size: 150%;
+}
+body.auction > header{
+    z-index: 2;
+}
+body.auction > img.auction{
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
 }
 body.complete{
     background-image: url("/static/luggage/leather_bag.jpg");
@@ -99,4 +114,41 @@ div.staff{
 }
 img.about{
     opacity: .5;
+}
+html > img{
+    opacity: .5;
+}
+body.auction > main.auction_top{
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    z-index: 2;
+    max-width: 90%;
+}
+body.auction > main.auction_bottom{
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    z-index: 2;
+    max-width: 90%;
+}
+body.auction > main.auction_top > section.auction{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+body.auction > section.auction_bottom > section.auction{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: flex-start;
 }
