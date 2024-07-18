@@ -1,4 +1,12 @@
 package com.michaelryan.carryon.repository;
 
-public class FlightRepository {
+import com.michaelryan.carryon.entity.Flight;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.time.ZonedDateTime;
+
+@Repository
+public interface FlightRepository extends JpaRepository<Flight, Long> {
+    Flight findByFlightNumberAndFlightDate(String flightNumber, ZonedDateTime flightDate);
 }
