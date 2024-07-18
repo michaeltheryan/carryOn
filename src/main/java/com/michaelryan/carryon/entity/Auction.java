@@ -18,23 +18,23 @@ public class Auction {
     @Column
     private Double reserve;
 
-    @Column
     @NotNull
+    @Column
     private Double start_price;
 
     @Column
     private Double sale_price;
 
-    @Column
     @NotNull
+    @Column
     private ZonedDateTime start_date;
 
-    @Column
     @NotNull
+    @Column
     private ZonedDateTime end_date;
 
-    @Column
     @NotNull
+    @Column
     private boolean active;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

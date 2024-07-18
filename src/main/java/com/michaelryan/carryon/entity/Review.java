@@ -3,9 +3,9 @@ package com.michaelryan.carryon.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "reviews")
-@Data
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
