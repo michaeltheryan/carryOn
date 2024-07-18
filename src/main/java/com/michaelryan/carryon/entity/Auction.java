@@ -1,6 +1,7 @@
 package com.michaelryan.carryon.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
@@ -14,19 +15,26 @@ public class Auction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true)
-    private double reserve;
+    @Column
+    private Double reserve;
 
-    @Column(nullable = true)
-    private double sale_price;
+    @Column
+    @NotNull
+    private Double start_price;
 
-    @Column(nullable = false)
+    @Column
+    private Double sale_price;
+
+    @Column
+    @NotNull
     private ZonedDateTime start_date;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private ZonedDateTime end_date;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private boolean active;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

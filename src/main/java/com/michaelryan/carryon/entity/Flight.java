@@ -1,6 +1,7 @@
 package com.michaelryan.carryon.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
@@ -14,37 +15,48 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String flight_number;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String airline_code;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String airport_code_departure;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String airport_terminal_departure;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String airport_gate_departure;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String airport_code_arrival;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String airport_terminal_arrival;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String airport_gate_arrival;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private String aircraft_model;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private ZonedDateTime departure;
 
-    @Column(nullable = false)
+    @Column
+    @NotNull
     private ZonedDateTime arrival;
 
     @OneToMany(mappedBy = "flight")
