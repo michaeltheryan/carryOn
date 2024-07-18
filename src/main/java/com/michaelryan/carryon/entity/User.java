@@ -11,6 +11,7 @@ import java.util.List;
 @Table(name = "users")
 @Data
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,6 +27,14 @@ public class User {
     @Column
     @NotNull
     private ZonedDateTime created;
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+        this.created = ZonedDateTime.now();
+    }
+
+    public User() {}
 
     @OneToMany(mappedBy = "id")
     private List<Bid> bids;
