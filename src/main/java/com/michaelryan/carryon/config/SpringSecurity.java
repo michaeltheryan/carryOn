@@ -14,12 +14,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class Security {
+public class SpringSecurity {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -27,7 +27,7 @@ public class Security {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers(("xxx")).permitAll()
+                        .requestMatchers(("index")).permitAll()
                         .requestMatchers(("xxx")).permitAll()
                         .requestMatchers(("xxx")).permitAll()
                         .anyRequest().authenticated()

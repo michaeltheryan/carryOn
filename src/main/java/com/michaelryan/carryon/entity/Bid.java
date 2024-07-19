@@ -16,11 +16,11 @@ public class Bid {
 
     @Column
     @NotNull
-    private ZonedDateTime bid_time;
+    private ZonedDateTime bidTime;
 
     @Column
     @NotNull
-    private double bid_amount;
+    private double bidAmount;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "auction_id")

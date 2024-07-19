@@ -8,5 +8,5 @@ import java.time.ZonedDateTime;
 
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
-    Flight findByFlightNumberAndFlightDate(String flightNumber, ZonedDateTime flightDate);
+    Flight findByFlightNumberAndDeparture(String flightNumber, ZonedDateTime flightDate);
 }

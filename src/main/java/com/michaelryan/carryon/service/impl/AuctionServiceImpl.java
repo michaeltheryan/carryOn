@@ -3,6 +3,7 @@ package com.michaelryan.carryon.service.impl;
 import com.michaelryan.carryon.dto.AuctionDto;
 import com.michaelryan.carryon.entity.Auction;
 import com.michaelryan.carryon.entity.Flight;
+import com.michaelryan.carryon.entity.User;
 import com.michaelryan.carryon.repository.AuctionRepository;
 import com.michaelryan.carryon.service.AuctionService;
 import org.springframework.stereotype.Service;
@@ -23,17 +24,17 @@ public class AuctionServiceImpl implements AuctionService {
     public void saveAuction(AuctionDto auctionDto) {
         Auction auction = new Auction();
         auction.setReserve(auctionDto.getReserve());
-        auction.setStart_price(auctionDto.getStart_price());
-        auction.setSale_price(auctionDto.getSale_price());
-        auction.setStart_date(auctionDto.getStart_date());
-        auction.setEnd_date(auctionDto.getEnd_date());
+        auction.setStartPrice(auctionDto.getStart_price());
+        auction.setSalePrice(auctionDto.getSale_price());
+        auction.setStartDate(auctionDto.getStart_date());
+        auction.setEndDate(auctionDto.getEnd_date());
         auction.setActive(auctionDto.isActive());
         auctionRepository.save(auction);
     }
 
     @Override
-    public Auction findByStart_dateAndEnd_dateAndSellerAndFlight(ZonedDateTime start, ZonedDateTime end, String seller, Flight flight) {
-        return auctionRepository.findByStart_dateAndEnd_dateAndSellerAndFlight(start, end, seller, flight);
+    public Auction findByStart_dateAndEnd_dateAndSellerAndFlight(ZonedDateTime start, ZonedDateTime end, User seller, Flight flight) {
+        return auctionRepository.findByStartDateAndEndDateAndSellerAndFlight(start, end, seller, flight);
     }
 
     @Override
@@ -46,10 +47,10 @@ public class AuctionServiceImpl implements AuctionService {
     private AuctionDto convertEntityToDto(Auction auction){
         AuctionDto auctionDto = new AuctionDto();
         auctionDto.setReserve(auction.getReserve());
-        auctionDto.setStart_price(auction.getStart_price());
-        auctionDto.setSale_price(auction.getSale_price());
-        auctionDto.setStart_date(auction.getStart_date());
-        auctionDto.setEnd_date(auction.getEnd_date());
+        auctionDto.setStart_price(auction.getStartPrice());
+        auctionDto.setSale_price(auction.getSalePrice());
+        auctionDto.setStart_date(auction.getStartDate());
+        auctionDto.setEnd_date(auction.getEndDate());
         auctionDto.setActive(auction.isActive());
         return auctionDto;
     }

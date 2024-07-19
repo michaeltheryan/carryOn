@@ -17,39 +17,39 @@ public class Flight {
 
     @Column
     @NotNull
-    private String flight_number;
+    private String flightNumber;
 
     @Column
     @NotNull
-    private String airline_code;
+    private String airlineCode;
 
     @Column
     @NotNull
-    private String airport_code_departure;
+    private String airportCodeDeparture;
 
     @Column
     @NotNull
-    private String airport_terminal_departure;
+    private String airportTerminalDeparture;
 
     @Column
     @NotNull
-    private String airport_gate_departure;
+    private String airportGateDeparture;
 
     @Column
     @NotNull
-    private String airport_code_arrival;
+    private String airportCodeArrival;
 
     @Column
     @NotNull
-    private String airport_terminal_arrival;
+    private String airportTerminalArrival;
 
     @Column
     @NotNull
-    private String airport_gate_arrival;
+    private String airportGateArrival;
 
     @Column
     @NotNull
-    private String aircraft_model;
+    private String aircraftModel;
 
     @Column
     @NotNull

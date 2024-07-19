@@ -21,14 +21,14 @@ public class BidServiceImpl implements BidService {
     @Override
     public void saveBid(BidDto newBidDto) {
         Bid newBid = new Bid();
-        newBid.setBid_time(newBidDto.getBid_time());
-        newBid.setBid_amount(newBidDto.getBid_amount());
+        newBid.setBidTime(newBidDto.getBid_time());
+        newBid.setBidAmount(newBidDto.getBid_amount());
         bidRepository.save(newBid);
     }
 
     @Override
     public Bid findByAuctionAndBid_amount(Auction auction, Double amount) {
-        return bidRepository.findByAuctionAndBid_amount(auction, amount);
+        return bidRepository.findByAuctionAndBidAmount(auction, amount);
     }
 
     @Override
@@ -40,8 +40,8 @@ public class BidServiceImpl implements BidService {
 
     private BidDto convertEntityToDto(Bid entity) {
         BidDto dto = new BidDto();
-        dto.setBid_time(entity.getBid_time());
-        dto.setBid_amount(entity.getBid_amount());
+        dto.setBid_time(entity.getBidTime());
+        dto.setBid_amount(entity.getBidAmount());
         return dto;
     }
 }

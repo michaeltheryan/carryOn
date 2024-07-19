@@ -28,14 +28,6 @@ public class User {
     @NotNull
     private ZonedDateTime created;
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-        this.created = ZonedDateTime.now();
-    }
-
-    public User() {}
-
     @OneToMany(mappedBy = "id")
     private List<Bid> bids;
 

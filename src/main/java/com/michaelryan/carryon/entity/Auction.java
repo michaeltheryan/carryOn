@@ -20,18 +20,18 @@ public class Auction {
 
     @NotNull
     @Column
-    private Double start_price;
+    private Double startPrice;
 
     @Column
-    private Double sale_price;
-
-    @NotNull
-    @Column
-    private ZonedDateTime start_date;
+    private Double salePrice;
 
     @NotNull
     @Column
-    private ZonedDateTime end_date;
+    private ZonedDateTime startDate;
+
+    @NotNull
+    @Column
+    private ZonedDateTime endDate;
 
     @NotNull
     @Column

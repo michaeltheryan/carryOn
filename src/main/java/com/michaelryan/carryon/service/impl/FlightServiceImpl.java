@@ -21,15 +21,15 @@ public class FlightServiceImpl implements FlightService {
     @Override
     public void saveFlight(FlightDto flightDto) {
         Flight flight = new Flight();
-        flight.setFlight_number(flightDto.getFlight_number());
-        flight.setAirline_code(flightDto.getAirline_code());
-        flight.setAirport_code_departure(flightDto.getAirport_code_departure());
-        flight.setAirport_gate_departure(flightDto.getAirport_gate_departure());
-        flight.setAirport_terminal_departure(flightDto.getAirport_terminal_departure());
-        flight.setAirport_code_arrival(flightDto.getAirport_code_arrival());
-        flight.setAirport_gate_arrival(flightDto.getAirport_gate_arrival());
-        flight.setAirport_terminal_arrival(flightDto.getAirport_terminal_arrival());
-        flight.setAircraft_model(flightDto.getAircraft_model());
+        flight.setFlightNumber(flightDto.getFlight_number());
+        flight.setAirlineCode(flightDto.getAirline_code());
+        flight.setAirportCodeDeparture(flightDto.getAirport_code_departure());
+        flight.setAirportGateDeparture(flightDto.getAirport_gate_departure());
+        flight.setAirportTerminalDeparture(flightDto.getAirport_terminal_departure());
+        flight.setAirportCodeArrival(flightDto.getAirport_code_arrival());
+        flight.setAirportGateArrival(flightDto.getAirport_gate_arrival());
+        flight.setAirportTerminalArrival(flightDto.getAirport_terminal_arrival());
+        flight.setAircraftModel(flightDto.getAircraft_model());
         flight.setDeparture(flightDto.getDeparture());
         flight.setArrival(flightDto.getArrival());
         flightRepository.save(flight);
@@ -37,7 +37,7 @@ public class FlightServiceImpl implements FlightService {
 
     @Override
     public Flight findByFlightNumberAndFlightDate(String flightNumber, ZonedDateTime flightDate) {
-        return flightRepository.findByFlightNumberAndFlightDate(flightNumber, flightDate);
+        return flightRepository.findByFlightNumberAndDeparture(flightNumber, flightDate);
     }
 
     @Override
@@ -49,15 +49,15 @@ public class FlightServiceImpl implements FlightService {
 
     private FlightDto convertEntityToDto(Flight flight) {
         FlightDto flightDto = new FlightDto();
-        flightDto.setFlight_number(flight.getFlight_number());
-        flightDto.setAirline_code(flight.getAirline_code());
-        flightDto.setAirport_code_departure(flight.getAirport_code_departure());
-        flightDto.setAirport_gate_departure(flight.getAirport_gate_departure());
-        flightDto.setAirport_terminal_departure(flight.getAirport_terminal_departure());
-        flightDto.setAirport_code_arrival(flight.getAirport_code_arrival());
-        flightDto.setAirport_gate_arrival(flight.getAirport_gate_arrival());
-        flightDto.setAirport_terminal_arrival(flight.getAirport_terminal_arrival());
-        flightDto.setAircraft_model(flight.getAircraft_model());
+        flightDto.setFlight_number(flight.getFlightNumber());
+        flightDto.setAirline_code(flight.getAirlineCode());
+        flightDto.setAirport_code_departure(flight.getAirportCodeDeparture());
+        flightDto.setAirport_gate_departure(flight.getAirportGateDeparture());
+        flightDto.setAirport_terminal_departure(flight.getAirportTerminalDeparture());
+        flightDto.setAirport_code_arrival(flight.getAirportCodeArrival());
+        flightDto.setAirport_gate_arrival(flight.getAirportGateArrival());
+        flightDto.setAirport_terminal_arrival(flight.getAirportTerminalArrival());
+        flightDto.setAircraft_model(flight.getAircraftModel());
         flightDto.setDeparture(flight.getDeparture());
         flightDto.setArrival(flight.getArrival());
         return flightDto;
