@@ -25,7 +25,6 @@ public class User {
     private String password;
 
     @Column
-    @NotNull
     private ZonedDateTime created;
 
     @OneToMany(mappedBy = "id")

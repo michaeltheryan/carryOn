@@ -8,11 +8,11 @@ import lombok.Data;
 public class ReviewDto {
     private Long id;
 
-    @Min(1)
+    @Min(0)
     @Max(10)
     private Integer buyer_rating;
 
-    @Min(1)
+    @Min(0)
     @Max(10)
     private Integer seller_rating;
 }

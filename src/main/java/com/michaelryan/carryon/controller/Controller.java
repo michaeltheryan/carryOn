@@ -1,31 +1,112 @@
 package com.michaelryan.carryon.controller;
 
+import com.michaelryan.carryon.dto.UserDto;
+import com.michaelryan.carryon.entity.User;
+import com.michaelryan.carryon.service.UserService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @org.springframework.stereotype.Controller
 public class Controller {
-    @GetMapping("index")
+
+    private UserService userService;
+
+    @Autowired
+    public Controller(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/index")
     public String index() {
         return "index";
     }
-    @GetMapping("about_us")
+
+    @GetMapping("/")
+    public String home() {
+        return "index";
+    }
+
+    @GetMapping("/about")
     public String aboutUs() {
-        return "about_us";
+        return "about";
     }
-    @GetMapping("contact_us")
-    public String contactUs() {
-        return "contact_us";
+
+    @GetMapping("/auction")
+    public String auction() {
+        return "auction";
     }
-    @GetMapping("error")
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
+    @GetMapping("/login")
+    public String login(Model model) {
+        UserDto userDto = new UserDto();
+        model.addAttribute("userDto", userDto);
+        return "login";
+    }
+
+    @GetMapping("/error")
     public String error() {
         return "error";
     }
-    @GetMapping("user_agreement")
+
+    @GetMapping("/privacy")
+    public String privacy() {
+        return "privacy";
+    }
+
+    @GetMapping("/profile")
+    public String profile() {
+        return "profile";
+    }
+
+    @GetMapping("/purchase")
+    public String purchase() {
+        return "purchase";
+    }
+
+    @GetMapping("register")
+    public String registrationForm(Model model) {
+        UserDto userDto = new UserDto();
+        model.addAttribute("userDto", userDto);
+        return "register";
+    }
+
+    @PostMapping("register/save")
+    public String registration(@Valid @ModelAttribute("user") UserDto userDto,
+                               BindingResult bindingResult, Model model) {
+        User existing = userService.findByEmail(userDto.getEmail());
+        if (existing != null) {
+            bindingResult.rejectValue("email", null, "Email already exists");
+        }
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("userDto", userDto);
+            return "register";
+        }
+        return "redirect:/register?success";
+    }
+
+    @GetMapping("/search")
+    public String search() {
+        return "search";
+    }
+
+    @GetMapping("/search_results")
+    public String searchResults() {
+        return "search_results";
+    }
+
+    @GetMapping("/user_agreement")
     public String userAgreement() {
         return "user_agreement";
     }
-    @GetMapping("privacy_notice")
-    public String privacyNotice() {
-        return "privacy_notice";
-    }
+
 }

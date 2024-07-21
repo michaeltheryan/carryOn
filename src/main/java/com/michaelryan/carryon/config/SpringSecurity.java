@@ -23,20 +23,38 @@ public class SpringSecurity {
         return new BCryptPasswordEncoder();
     }
 
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .userDetailsService(customUserDetailsService)
+                .passwordEncoder(passwordEncoder());
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers(("index")).permitAll()
-                        .requestMatchers(("xxx")).permitAll()
-                        .requestMatchers(("xxx")).permitAll()
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(("/register/**")).permitAll()
+                        //.requestMatchers(("/register**")).permitAll()
+                        .requestMatchers(("/index/**")).permitAll()
+                        .requestMatchers(("/about/**")).permitAll()
+                        .requestMatchers(("/auction/**")).permitAll()
+                        .requestMatchers(("/contact/**")).permitAll()
+                        .requestMatchers(("/error/**")).permitAll()
+                        .requestMatchers(("/privacy/**")).permitAll()
+                        .requestMatchers(("/profile/**")).permitAll()
+                        .requestMatchers(("/purchase/**")).permitAll()
+                        .requestMatchers(("/search/**")).permitAll()
+                        .requestMatchers(("/search_results/**")).permitAll()
+                        .requestMatchers(("/user_agreement/**")).permitAll()
+                        .requestMatchers(("/**")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(
-                        (form) -> form
+                        form   -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/")
+                                .defaultSuccessUrl("/index")
                                 .permitAll()
                 ).logout(
                         logout -> logout
@@ -44,11 +62,5 @@ public class SpringSecurity {
                                 .permitAll()
                 );
         return http.build();
-    }
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(customUserDetailsService)
-                .passwordEncoder(passwordEncoder());
     }
 }

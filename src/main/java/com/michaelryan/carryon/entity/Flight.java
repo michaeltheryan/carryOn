@@ -52,11 +52,9 @@ public class Flight {
     private String aircraftModel;
 
     @Column
-    @NotNull
     private ZonedDateTime departure;
 
     @Column
-    @NotNull
     private ZonedDateTime arrival;
 
     @OneToMany(mappedBy = "flight")

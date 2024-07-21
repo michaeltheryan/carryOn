@@ -1,6 +1,6 @@
 package com.michaelryan.carryon.dto;
 
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
@@ -8,9 +8,8 @@ import java.time.ZonedDateTime;
 @Data public class BidDto {
     private long id;
 
-    @NotEmpty
     private ZonedDateTime bid_time;
 
-    @NotEmpty
+    @Min(0)
     private Double bid_amount;
 }

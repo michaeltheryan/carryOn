@@ -17,6 +17,5 @@ public class UserDto {
     @NotEmpty(message = "Password required")
     private String password;
 
-    @NotEmpty
     private ZonedDateTime created;
 }

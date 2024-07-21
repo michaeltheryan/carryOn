@@ -1,7 +1,7 @@
 package com.michaelryan.carryon.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
@@ -15,11 +15,11 @@ public class Bid {
     private Long id;
 
     @Column
-    @NotNull
+    @Min(0)
     private ZonedDateTime bidTime;
 
     @Column
-    @NotNull
+    @Min(0)
     private double bidAmount;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

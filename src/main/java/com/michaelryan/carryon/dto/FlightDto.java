@@ -36,10 +36,8 @@ public class FlightDto {
     @NotEmpty
     private String aircraft_model;
 
-    @NotEmpty
     private ZonedDateTime departure;
 
-    @NotEmpty
     private ZonedDateTime arrival;
 
 }

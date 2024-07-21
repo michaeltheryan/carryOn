@@ -1,8 +1,9 @@
 package com.michaelryan.carryon.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
+import lombok.Getter;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -18,22 +19,19 @@ public class Auction {
     @Column
     private Double reserve;
 
-    @NotNull
+    @Min(0)
     @Column
     private Double startPrice;
 
     @Column
     private Double salePrice;
 
-    @NotNull
     @Column
     private ZonedDateTime startDate;
 
-    @NotNull
     @Column
     private ZonedDateTime endDate;
 
-    @NotNull
     @Column
     private boolean active;
 
@@ -41,6 +39,7 @@ public class Auction {
     @JoinColumn(name = "seller_id")
     private User seller;
 
+    @Getter
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "flight_id")
     private Flight flight;
