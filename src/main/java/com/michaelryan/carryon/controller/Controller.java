@@ -91,6 +91,7 @@ public class Controller {
             model.addAttribute("userDto", userDto);
             return "register";
         }
+        userService.saveUser(userDto);
         return "redirect:/register?success";
     }
 

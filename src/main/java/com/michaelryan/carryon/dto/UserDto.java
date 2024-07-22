@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Data
 public class UserDto {
@@ -17,5 +17,5 @@ public class UserDto {
     @NotEmpty(message = "Password required")
     private String password;
 
-    private ZonedDateTime created;
+    private LocalDateTime created;
 }

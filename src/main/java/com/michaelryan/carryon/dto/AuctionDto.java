@@ -3,7 +3,7 @@ package com.michaelryan.carryon.dto;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Data
 public class AuctionDto {
@@ -19,9 +19,9 @@ public class AuctionDto {
     @Min(0)
     private Double sale_price;
 
-    private ZonedDateTime start_date;
+    private LocalDateTime start_date;
 
-    private ZonedDateTime end_date;
+    private LocalDateTime end_date;
 
     private boolean active;
 }

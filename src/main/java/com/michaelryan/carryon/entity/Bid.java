@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "bids")
@@ -16,7 +16,7 @@ public class Bid {
 
     @Column
     @Min(0)
-    private ZonedDateTime bidTime;
+    private LocalDateTime bidTime;
 
     @Column
     @Min(0)

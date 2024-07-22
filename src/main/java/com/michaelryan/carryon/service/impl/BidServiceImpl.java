@@ -7,8 +7,11 @@ import com.michaelryan.carryon.repository.BidRepository;
 import com.michaelryan.carryon.service.BidService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.time.ZoneOffset.UTC;
 
 @Service
 public class BidServiceImpl implements BidService {
@@ -21,7 +24,7 @@ public class BidServiceImpl implements BidService {
     @Override
     public void saveBid(BidDto newBidDto) {
         Bid newBid = new Bid();
-        newBid.setBidTime(newBidDto.getBid_time());
+        newBid.setBidTime(LocalDateTime.now(UTC));
         newBid.setBidAmount(newBidDto.getBid_amount());
         bidRepository.save(newBid);
     }

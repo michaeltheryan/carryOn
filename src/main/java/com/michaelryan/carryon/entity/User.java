@@ -1,10 +1,10 @@
 package com.michaelryan.carryon.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -17,15 +17,15 @@ public class User {
     private Long id;
 
     @Column(unique = true)
-    @NotNull
+    @NotEmpty
     private String email;
 
     @Column
-    @NotNull
+    @NotEmpty
     private String password;
 
     @Column
-    private ZonedDateTime created;
+    private LocalDateTime created;
 
     @OneToMany(mappedBy = "id")
     private List<Bid> bids;

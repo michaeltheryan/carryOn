@@ -4,11 +4,15 @@ import com.michaelryan.carryon.dto.UserDto;
 import com.michaelryan.carryon.entity.User;
 import com.michaelryan.carryon.repository.UserRepository;
 import com.michaelryan.carryon.service.UserService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.time.ZoneOffset.UTC;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,6 +21,7 @@ public class UserServiceImpl implements UserService {
 
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     @Override
@@ -24,7 +29,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setCreated(userDto.getCreated());
+        user.setCreated(LocalDateTime.now(UTC));
         userRepository.save(user);
     }
 

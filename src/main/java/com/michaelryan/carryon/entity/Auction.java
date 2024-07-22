@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Min;
 import lombok.Data;
 import lombok.Getter;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -27,10 +27,10 @@ public class Auction {
     private Double salePrice;
 
     @Column
-    private ZonedDateTime startDate;
+    private LocalDateTime startDate;
 
     @Column
-    private ZonedDateTime endDate;
+    private LocalDateTime endDate;
 
     @Column
     private boolean active;
