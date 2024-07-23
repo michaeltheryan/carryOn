@@ -6,9 +6,14 @@ import com.michaelryan.carryon.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
+/**
+ * This interface provides the contract for Spring Data Abstraction to
+ * implement - this enables abstraction that hides application logic from
+ * non-necessary access
+ */
 @Repository
 public interface AuctionRepository extends JpaRepository<Auction, Long> {
-    Auction findByStartDateAndEndDateAndSellerAndFlight(ZonedDateTime start, ZonedDateTime end, User seller, Flight flight);
+    Auction findByStartDateAndEndDateAndSellerAndFlight(LocalDateTime start, LocalDateTime end, User seller, Flight flight);
 }

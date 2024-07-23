@@ -8,10 +8,17 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * This class defines the attributes for Auction Entities (POJOs) which
+ * representing table data that can be persisted in the database
+ */
 @Entity
 @Table(name = "auctions")
 @Data
 public class Auction {
+    /**
+     * Each attribute represents a column in the table
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -9,20 +9,32 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.michaelryan.carryon.entity.Flight;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
+/**
+ * This is a class to convert received JSON data to an Entity
+ */
 public class CustomFlightDeserializer extends StdDeserializer<Flight> {
 
+    /**
+     * no-args constructor
+     */
     public CustomFlightDeserializer() {
         this(null);
     }
 
+    /**
+     * constructor that accepts Flight Entity class as an argument
+     */
     public CustomFlightDeserializer(Class<Flight> t) {
         super(t);
     }
 
+    /**
+     * This method finds the pertinent values in the JSON response and
+     * assigns each value to the relevant attribute of a newly created
+     * Entity object, returning the object when complete
+     */
     @Override
     public Flight deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
         Flight flight = new Flight();

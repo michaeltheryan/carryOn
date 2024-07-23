@@ -1,10 +1,13 @@
 package com.michaelryan.carryon.dto;
 
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * This class defines the attributes for Flight Data Transfer Objects which
+ * are used to carry multiple data attributes between processes
+ */
 @Data
 public class FlightDto {
     private Long id;
@@ -18,14 +21,10 @@ public class FlightDto {
 
     private String airport_terminal_departure;
 
-    private String airport_gate_departure;
-
     //@NotEmpty
     private String airportCodeArrival;
 
     private String airport_terminal_arrival;
-
-    private String airport_gate_arrival;
 
     private String aircraft_model;
 

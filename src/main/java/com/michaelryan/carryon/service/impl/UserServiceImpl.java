@@ -14,16 +14,27 @@ import java.util.stream.Collectors;
 
 import static java.time.ZoneOffset.UTC;
 
+/**
+ * This class implements the corresponding service interface and provides the
+ * business logic (go-between for the controller/web layer and the data access
+ * layer (repository, DAO, etc.) for Auctions
+ */
 @Service
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
+    /**
+    * constructor
+    */
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
+    /**
+     * method to save new Users
+     */
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
@@ -33,11 +44,37 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    /**
+     * method to delete new Users
+     */
+    public void deleteUser(String email) {
+        User user = userRepository.findByEmail(email);
+        // logic to remove user from database
+        userRepository.save(user);
+    }
+
+    /**
+     * method to make changes to Users
+     */
+    public void updateUser(UserDto userDto) {
+        User user = userRepository.findByEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        // does above actually change the password?
+        // if so, is below needed?
+        userRepository.save(user);
+    }
+
+    /**
+     * method to find Users by email
+     */
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
+    /**
+     * method to find all Users
+     */
     @Override
     public List<UserDto> findAllUsers() {
         List<User> users = userRepository.findAll();
@@ -45,6 +82,36 @@ public class UserServiceImpl implements UserService {
                 collect(Collectors.toList());
     }
 
+    /**
+     * method to find all Users whose emails do not end in .com
+     */
+    public List<UserDto> findNotComUsers() {
+        List<User> users = userRepository.findNotComUsers();
+        return users.stream().map((user) -> convertEntityToDto(user)).
+                collect(Collectors.toList());
+    }
+
+    /**
+     * method to find all Users with government email addresses
+     */
+    public List<UserDto> findAllGovUsers() {
+        List<User> users = userRepository.findAllGovUsers();
+        return users.stream().map((user) -> convertEntityToDto(user)).
+                collect(Collectors.toList());
+    }
+
+    /**
+     * method to find all Users who registered before June 1
+     */
+    public List<UserDto> findAllUsersBeforeJune() {
+        List<User> users = userRepository.findAllUsersBeforeJune();
+        return users.stream().map((user) -> convertEntityToDto(user)).
+                collect(Collectors.toList());
+    }
+
+    /**
+     * method to convert Users to Dtos for client interactions
+     */
     private UserDto convertEntityToDto(User user) {
         UserDto userDto = new UserDto();
         userDto.setEmail(user.getEmail());

@@ -6,10 +6,17 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * This class defines the attributes for Bid Entities (POJOs) which
+ * representing table data that can be persisted in the database
+ */
 @Entity
 @Table(name = "bids")
 @Data
 public class Bid {
+    /**
+     * Each attribute represents a column in the table
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

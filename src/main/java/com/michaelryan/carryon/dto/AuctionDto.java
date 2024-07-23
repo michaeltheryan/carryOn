@@ -5,6 +5,10 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * This class defines the attributes for Auction Data Transfer Objects which
+ * are used to carry multiple data attributes between processes
+ */
 @Data
 public class AuctionDto {
 

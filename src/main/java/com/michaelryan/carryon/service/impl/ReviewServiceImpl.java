@@ -10,14 +10,25 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class implements the corresponding service interface and provides the
+ * business logic (go-between for the controller/web layer and the data access
+ * layer (repository, DAO, etc.) for Auctions
+ */
 @Service
 public class ReviewServiceImpl implements ReviewService {
     private ReviewRepository reviewRepository;
 
+    /**
+     * constructor
+     */
     public ReviewServiceImpl(ReviewRepository reviewRepository) {
         this.reviewRepository = reviewRepository;
     }
 
+    /**
+     * method to convert Reviews to Dtos for client interactions
+     */
     private ReviewDto convertEntityToDto(Review review) {
         ReviewDto reviewDto = new ReviewDto();
         reviewDto.setBuyer_rating(review.getBuyer_rating());
@@ -25,6 +36,9 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewDto;
     }
 
+    /**
+     * method to save new Reviews
+     */
     @Override
     public void saveReview(ReviewDto reviewDto) {
         Review review = new Review();
@@ -33,11 +47,17 @@ public class ReviewServiceImpl implements ReviewService {
         reviewRepository.save(review);
     }
 
+    /**
+     * method to find Reviews by auction
+     */
     @Override
     public Review findByAuction(Auction auction) {
         return reviewRepository.findByAuction(auction);
     }
 
+    /**
+     * method to find all Reviews
+     */
     @Override
     public List<ReviewDto> findAllReviews() {
         List<Review> reviews = reviewRepository.findAll();

@@ -7,10 +7,17 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * This class defines the attributes for Flight Entities (POJOs) which
+ * representing table data that can be persisted in the database
+ */
 @Entity
 @Table(name = "flights")
 @Data
 public class Flight {
+    /**
+     * Each attribute represents a column in the table
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,10 +40,6 @@ public class Flight {
 
     @Column
     @NotNull
-    private String airportGateDeparture;
-
-    @Column
-    @NotNull
     private String airportCodeArrival;
 
     @Column
@@ -44,11 +47,6 @@ public class Flight {
     private String airportTerminalArrival;
 
     @Column
-    @NotNull
-    private String airportGateArrival;
-
-    @Column
-    @NotNull
     private String aircraftModel;
 
     @Column
