@@ -48,6 +48,7 @@ public class SpringSecurity {
                         .requestMatchers(("/search_results/**")).permitAll()
                         .requestMatchers(("/user_agreement/**")).permitAll()
                         .requestMatchers(("/**")).permitAll()
+                        .requestMatchers(("https://flight-info-api.p.rapidapi.com/**")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(
