@@ -3,41 +3,34 @@ package com.michaelryan.carryon.dto;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Data
 public class FlightDto {
     private Long id;
 
-    @NotEmpty
     private String flight_number;
 
-    @NotEmpty
     private String airline_code;
 
-    @NotEmpty
-    private String airport_code_departure;
+    //@NotEmpty
+    private String airportCodeDeparture;
 
-    @NotEmpty
     private String airport_terminal_departure;
 
-    @NotEmpty
     private String airport_gate_departure;
 
-    @NotEmpty
-    private String airport_code_arrival;
+    //@NotEmpty
+    private String airportCodeArrival;
 
-    @NotEmpty
     private String airport_terminal_arrival;
 
-    @NotEmpty
     private String airport_gate_arrival;
 
-    @NotEmpty
     private String aircraft_model;
 
-    private ZonedDateTime departure;
+    private LocalDateTime departure;
 
-    private ZonedDateTime arrival;
+    private LocalDateTime arrival;
 
 }

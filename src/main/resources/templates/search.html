@@ -6,6 +6,96 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body class="search">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous">
+</script>
+<img src="../static/happy.jpeg" id="login" class="login" alt="overhead compartment">
+<img src="../static/sky.jpg" id="signup" class="login hidden" alt="sky">
+<img src="../static/empty.jpg" id="retrieve" class="login hidden" alt="overhead compartment">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{index.html}">Registration and Login System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+<br />
+<br />
+<br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">No such airport/city</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Search</h3>
+                    </div>
+                    <div class="card-body">
+                        <form
+                                method="get"
+                                th:action="@{/search}"
+                                th:form="${flightDto}"
+                                class="form-horizontal"
+                                role="form"
+                        >
+                            <div class="mb-3">
+                                <label for="departureCode" class="control-label">From</label>
+                                <input type="text"
+                                       id="departureCode"
+                                       name="departureCode"
+                                       class="form-control"
+                                       placeholder="from"
+                                       th:field=*"{airport_code_departure}"
+                                />
+                            </div>
 
+                            <div class="mb-3">
+                                <label for="arrivalCode" class="control-label">To</label>
+                                <input type="text"
+                                       id="arrivalCode"
+                                       name="arrivalCode"
+                                       class="form-control"
+                                       placeholder="to"
+                                       th:field=*"{airport_code_arrival}"
+                                />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="arrivalTime" class="control-label">To</label>
+                                <input type="date"
+                                       id="arrivalTime"
+                                       name="arrivalTime"
+                                       class="form-control"
+                                       placeholder="to"
+                                       th:field=*"{arrival}"
+                                />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="departureTime" class="control-label">To</label>
+                                <input type="date"
+                                       id="departureTime"
+                                       name="departureTime"
+                                       class="form-control"
+                                       placeholder="to"
+                                       th:field=*"{departure}"
+                                />
+                            </div>
+
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

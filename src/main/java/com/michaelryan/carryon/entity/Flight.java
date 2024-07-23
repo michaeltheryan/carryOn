@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -52,10 +52,10 @@ public class Flight {
     private String aircraftModel;
 
     @Column
-    private ZonedDateTime departure;
+    private LocalDateTime departure;
 
     @Column
-    private ZonedDateTime arrival;
+    private LocalDateTime arrival;
 
     @OneToMany(mappedBy = "flight")
     private List<Auction> auctions;

@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @org.springframework.stereotype.Controller
-public class Controller {
+public class UserController {
 
     private UserService userService;
 
     @Autowired
-    public Controller(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -93,16 +93,6 @@ public class Controller {
         }
         userService.saveUser(userDto);
         return "redirect:/register?success";
-    }
-
-    @GetMapping("/search")
-    public String search() {
-        return "search";
-    }
-
-    @GetMapping("/search_results")
-    public String searchResults() {
-        return "search_results";
     }
 
     @GetMapping("/user_agreement")
