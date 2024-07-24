@@ -83,28 +83,28 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * method to find all Users whose emails do not end in .com
-     */
-    public List<UserDto> findNotComUsers() {
-        List<User> users = userRepository.findNotComUsers();
-        return users.stream().map((user) -> convertEntityToDto(user)).
-                collect(Collectors.toList());
-    }
-
-    /**
      * method to find all Users with government email addresses
      */
-    public List<UserDto> findAllGovUsers() {
-        List<User> users = userRepository.findAllGovUsers();
+    public List<UserDto> findAllUsersByDomain(String domain) {
+        List<User> users = userRepository.findAllUsersByDomain(domain);
         return users.stream().map((user) -> convertEntityToDto(user)).
                 collect(Collectors.toList());
     }
 
     /**
-     * method to find all Users who registered before June 1
+     * method to find all Users  who registered after given date
      */
-    public List<UserDto> findAllUsersBeforeJune() {
-        List<User> users = userRepository.findAllUsersBeforeJune();
+    public List<UserDto> findAllUsersAfterDate(LocalDateTime date) {
+        List<User> users = userRepository.findAllUsersAfterDate(date);
+        return users.stream().map((user) -> convertEntityToDto(user)).
+                collect(Collectors.toList());
+    }
+
+    /**
+     * method to find all Users who registered before given date
+     */
+    public List<UserDto> findAllUsersBeforeDate(LocalDateTime date) {
+        List<User> users = userRepository.findAllUsersBeforeDate(date);
         return users.stream().map((user) -> convertEntityToDto(user)).
                 collect(Collectors.toList());
     }

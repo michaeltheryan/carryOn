@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -16,12 +17,12 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
 
-    @Query("SELECT u FROM User u WHERE u.email NOT LIKE '.com'")
-    List<User> findNotComUsers();
+    @Query("SELECT u FROM User u WHERE u.email = ?1")
+    List<User> findAllUsersByDomain(String domain);
 
-    @Query("SELECT u FROM User u WHERE u.email = '.gov'")
-    List<User> findAllGovUsers();
+    @Query("SELECT u FROM User u WHERE u.created > ?1")
+    List<User> findAllUsersAfterDate(LocalDateTime date);
 
-    @Query("SELECT u FROM User u WHERE u.created < '2024-06-01'")
-    List<User> findAllUsersBeforeJune();
+    @Query("SELECT u FROM User u WHERE u.created < ?1")
+    List<User> findAllUsersBeforeDate(LocalDateTime date);
 }

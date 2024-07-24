@@ -11,6 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
  */
 @Configuration
 public class FlightWebConfig {
+    private final String baseUrl = "https://flight-info-api.p.rapidapi.com/schedules?version=v2&DepartureDateTime=";
 
     /**
      * This method creates a WebClient, which is a reactive web client introduced
