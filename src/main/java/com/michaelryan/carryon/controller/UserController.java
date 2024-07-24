@@ -150,6 +150,34 @@ public class UserController {
     }
 
     /**
+     * Method mapped to register GET endpoint
+     */
+    @GetMapping("retrieve")
+    public String passwordRetrievalForm(Model model) {
+        UserDto userDto = new UserDto();
+        model.addAttribute("userDto", userDto);
+        return "retrieve";
+    }
+
+    /**
+     * Method mapped to register POST endpoint
+     */
+    @PostMapping("retrieve/save")
+    public String retrievePassword(@Valid @ModelAttribute("user") UserDto userDto,
+                               BindingResult bindingResult, Model model) {
+        User existing = userService.findByEmail(userDto.getEmail());
+        if (existing != null) {
+            bindingResult.rejectValue("email", null, "Email already exists");
+        }
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("userDto", userDto);
+            return "retrieve";
+        }
+        userService.saveUser(userDto);
+        return "redirect:/retrieve?success";
+    }
+
+    /**
      * Method mapped to user_agreement endpoint
      */
     @GetMapping("/user_agreement")
