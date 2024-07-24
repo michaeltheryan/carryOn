@@ -1,7 +1,9 @@
 package com.michaelryan.carryon.service.impl;
 
 import com.michaelryan.carryon.dto.UserDto;
+import com.michaelryan.carryon.entity.Role;
 import com.michaelryan.carryon.entity.User;
+import com.michaelryan.carryon.repository.RoleRepository;
 import com.michaelryan.carryon.repository.UserRepository;
 import com.michaelryan.carryon.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,13 +25,15 @@ import static java.time.ZoneOffset.UTC;
 @Service
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
+    private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
 
     /**
     * constructor
     */
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
@@ -41,6 +46,20 @@ public class UserServiceImpl implements UserService {
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setCreated(LocalDateTime.now(UTC));
+
+        String roleName;
+        if(userDto.isAdminRegistration()) {
+            roleName = "ROLE_ADMIN";
+        } else {
+            roleName = "ROLE_USER";
+        }
+        Role role = roleRepository.findByEmail(roleName);
+        if(role == null) {
+            role = new Role();
+            role.setEmail(roleName);
+            roleRepository.save(role);
+        }
+        user.setRoles(Collections.singletonList(role));
         userRepository.save(user);
     }
 

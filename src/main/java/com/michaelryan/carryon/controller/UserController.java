@@ -146,7 +146,7 @@ public class UserController {
             return "register";
         }
         userService.saveUser(userDto);
-        return "redirect:/register?success";
+        return "redirect:/login";
     }
 
     /**

@@ -52,6 +52,7 @@ public class SpringSecurity {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(("/register/**")).permitAll()
                         .requestMatchers(("/index/**")).permitAll()
+                        .requestMatchers(("/**")).permitAll()
                         .requestMatchers(("/about/**")).permitAll()
                         .requestMatchers(("/contact/**")).permitAll()
                         .requestMatchers(("/error/**")).permitAll()
