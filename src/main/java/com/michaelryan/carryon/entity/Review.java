@@ -19,10 +19,10 @@ public class Review {
     private Long id;
 
     @Column
-    private Integer buyer_rating;
+    private Integer buyerRating;
 
     @Column
-    private Integer seller_rating;
+    private Integer sellerRating;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "buyer_id")

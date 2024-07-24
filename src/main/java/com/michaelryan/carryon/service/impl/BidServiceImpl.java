@@ -36,7 +36,7 @@ public class BidServiceImpl implements BidService {
     public void saveBid(BidDto newBidDto) {
         Bid newBid = new Bid();
         newBid.setBidTime(LocalDateTime.now(UTC));
-        newBid.setBidAmount(newBidDto.getBid_amount());
+        newBid.setBidAmount(newBidDto.getBidAmount());
         bidRepository.save(newBid);
     }
 
@@ -63,8 +63,8 @@ public class BidServiceImpl implements BidService {
      */
     private BidDto convertEntityToDto(Bid entity) {
         BidDto dto = new BidDto();
-        dto.setBid_time(entity.getBidTime());
-        dto.setBid_amount(entity.getBidAmount());
+        dto.setBidTime(entity.getBidTime());
+        dto.setBidAmount(entity.getBidAmount());
         return dto;
     }
 }

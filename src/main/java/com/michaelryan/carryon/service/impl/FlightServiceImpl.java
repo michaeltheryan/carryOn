@@ -32,13 +32,13 @@ public class FlightServiceImpl implements FlightService {
     @Override
     public void saveFlight(FlightDto flightDto) {
         Flight flight = new Flight();
-        flight.setFlightNumber(flightDto.getFlight_number());
-        flight.setAirlineCode(flightDto.getAirline_code());
+        flight.setFlightNumber(flightDto.getFlightNumber());
+        flight.setAirlineCode(flightDto.getAirlineCode());
         flight.setAirportCodeDeparture(flightDto.getAirportCodeDeparture());
-        flight.setAirportTerminalDeparture(flightDto.getAirport_terminal_departure());
+        flight.setAirportTerminalDeparture(flightDto.getAirportTerminalDeparture());
         flight.setAirportCodeArrival(flightDto.getAirportCodeArrival());
-        flight.setAirportTerminalArrival(flightDto.getAirport_terminal_arrival());
-        flight.setAircraftModel(flightDto.getAircraft_model());
+        flight.setAirportTerminalArrival(flightDto.getAirportTerminalArrival());
+        flight.setAircraftModel(flightDto.getAircraftModel());
         flight.setDeparture(flightDto.getDeparture());
         flight.setArrival(flightDto.getArrival());
         flightRepository.save(flight);
@@ -81,13 +81,13 @@ public class FlightServiceImpl implements FlightService {
      */
     public FlightDto convertEntityToDto(Flight flight) {
         FlightDto flightDto = new FlightDto();
-        flightDto.setFlight_number(flight.getFlightNumber());
-        flightDto.setAirline_code(flight.getAirlineCode());
+        flightDto.setFlightNumber(flight.getFlightNumber());
+        flightDto.setAirlineCode(flight.getAirlineCode());
         flightDto.setAirportCodeDeparture(flight.getAirportCodeDeparture());
-        flightDto.setAirport_terminal_departure(flight.getAirportTerminalDeparture());
+        flightDto.setAirportTerminalDeparture(flight.getAirportTerminalDeparture());
         flightDto.setAirportCodeArrival(flight.getAirportCodeArrival());
-        flightDto.setAirport_terminal_arrival(flight.getAirportTerminalArrival());
-        flightDto.setAircraft_model(flight.getAircraftModel());
+        flightDto.setAirportTerminalArrival(flight.getAirportTerminalArrival());
+        flightDto.setAircraftModel(flight.getAircraftModel());
         flightDto.setDeparture(flight.getDeparture());
         flightDto.setArrival(flight.getArrival());
         return flightDto;

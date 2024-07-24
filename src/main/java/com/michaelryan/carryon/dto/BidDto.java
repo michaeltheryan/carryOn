@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Data public class BidDto {
     private long id;
 
-    private LocalDateTime bid_time;
+    private LocalDateTime bidTime;
 
     @Min(0)
-    private Double bid_amount;
+    private Double bidAmount;
 }

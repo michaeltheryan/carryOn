@@ -35,10 +35,10 @@ public class AuctionServiceImpl implements AuctionService {
     public void saveAuction(AuctionDto auctionDto) {
         Auction auction = new Auction();
         auction.setReserve(auctionDto.getReserve());
-        auction.setStartPrice(auctionDto.getStart_price());
-        auction.setSalePrice(auctionDto.getSale_price());
-        auction.setStartDate(auctionDto.getStart_date());
-        auction.setEndDate(auctionDto.getEnd_date());
+        auction.setStartPrice(auctionDto.getStartPrice());
+        auction.setSalePrice(auctionDto.getSalePrice());
+        auction.setStartDate(auctionDto.getStartDate());
+        auction.setEndDate(auctionDto.getEndDate());
         auction.setActive(auctionDto.isActive());
         auctionRepository.save(auction);
     }
@@ -47,7 +47,7 @@ public class AuctionServiceImpl implements AuctionService {
      * method to find Auctions by start date/time, end date/time, and seller
      */
     @Override
-    public Auction findByStart_dateAndEnd_dateAndSellerAndFlight(LocalDateTime start, LocalDateTime end, User seller, Flight flight) {
+    public Auction findByStartDateAndEndDateAndSellerAndFlight(LocalDateTime start, LocalDateTime end, User seller, Flight flight) {
         return auctionRepository.findByStartDateAndEndDateAndSellerAndFlight(start, end, seller, flight);
     }
 
@@ -67,10 +67,10 @@ public class AuctionServiceImpl implements AuctionService {
     private AuctionDto convertEntityToDto(Auction auction){
         AuctionDto auctionDto = new AuctionDto();
         auctionDto.setReserve(auction.getReserve());
-        auctionDto.setStart_price(auction.getStartPrice());
-        auctionDto.setSale_price(auction.getSalePrice());
-        auctionDto.setStart_date(auction.getStartDate());
-        auctionDto.setEnd_date(auction.getEndDate());
+        auctionDto.setStartPrice(auction.getStartPrice());
+        auctionDto.setSalePrice(auction.getSalePrice());
+        auctionDto.setStartDate(auction.getStartDate());
+        auctionDto.setEndDate(auction.getEndDate());
         auctionDto.setActive(auction.isActive());
         return auctionDto;
     }

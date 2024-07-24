@@ -31,8 +31,8 @@ public class ReviewServiceImpl implements ReviewService {
      */
     private ReviewDto convertEntityToDto(Review review) {
         ReviewDto reviewDto = new ReviewDto();
-        reviewDto.setBuyer_rating(review.getBuyer_rating());
-        reviewDto.setSeller_rating(review.getSeller_rating());
+        reviewDto.setBuyerRating(review.getBuyerRating());
+        reviewDto.setSellerRating(review.getSellerRating());
         return reviewDto;
     }
 
@@ -42,8 +42,8 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void saveReview(ReviewDto reviewDto) {
         Review review = new Review();
-        review.setBuyer_rating(reviewDto.getBuyer_rating());
-        review.setSeller_rating(reviewDto.getSeller_rating());
+        review.setBuyerRating(reviewDto.getBuyerRating());
+        review.setSellerRating(reviewDto.getSellerRating());
         reviewRepository.save(review);
     }
 

@@ -21,6 +21,6 @@ public interface AuctionService {
      * These methods must be fully implemented in the actual service class
      */
     void saveAuction(AuctionDto auctionDto);
-    Auction findByStart_dateAndEnd_dateAndSellerAndFlight(LocalDateTime start, LocalDateTime end, User seller, Flight flight);
+    Auction findByStartDateAndEndDateAndSellerAndFlight(LocalDateTime start, LocalDateTime end, User seller, Flight flight);
     List<AuctionDto> findAllAuctions();
 }

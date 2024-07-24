@@ -14,9 +14,9 @@ public class ReviewDto {
 
     @Min(0)
     @Max(10)
-    private Integer buyer_rating;
+    private Integer buyerRating;
 
     @Min(0)
     @Max(10)
-    private Integer seller_rating;
+    private Integer sellerRating;
 }

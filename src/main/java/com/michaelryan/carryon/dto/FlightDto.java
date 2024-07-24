@@ -12,21 +12,21 @@ import java.time.LocalDateTime;
 public class FlightDto {
     private Long id;
 
-    private String flight_number;
+    private String flightNumber;
 
-    private String airline_code;
+    private String airlineCode;
 
     //@NotEmpty
     private String airportCodeDeparture;
 
-    private String airport_terminal_departure;
+    private String airportTerminalDeparture;
 
     //@NotEmpty
     private String airportCodeArrival;
 
-    private String airport_terminal_arrival;
+    private String airportTerminalArrival;
 
-    private String aircraft_model;
+    private String aircraftModel;
 
     private LocalDateTime departure;
 

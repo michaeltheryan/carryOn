@@ -18,14 +18,14 @@ public class AuctionDto {
     private Double reserve;
 
     @Min(1)
-    private Double start_price;
+    private Double startPrice;
 
     @Min(0)
-    private Double sale_price;
+    private Double salePrice;
 
-    private LocalDateTime start_date;
+    private LocalDateTime startDate;
 
-    private LocalDateTime end_date;
+    private LocalDateTime endDate;
 
     private boolean active;
 }
