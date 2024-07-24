@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "helvetica", sans-serif;
+    font-size: 2vw;
+}
+a.logo {
+    background: url(logo_clear.png) no-repeat;
+    height: 15vh;
+}
+body{
+    background: url("empty_blue.jpg") no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+body.about{
+    color: white;
+}
+body.about > header{
+    display: grid;
+}
+body.about > header > *{
+    grid-area: 1 / 1;
+}
+body.about > header >img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+}
+body.about > header > h1{
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    align-self: start;
+    font-size: 15rem;
+}
+body.auction{
+    color: darkblue;
+    background-color: transparent;
+    font-size: 150%;
+}
+body.auction > header{
+    z-index: 2;
+}
+body.auction > img.auction{
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+body.complete{
+    background-image: url("leather_bag.jpg");
+}
+body.contact{
+    background-image: url("leather_bag.jpg");
+}
+body.error{
+    background-color: transparent;
+    color: darkblue;
+    font-size: 200%;
+}
+body.error > img.error{
+    background-image: url("leather_bag.jpg");
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+body.index{
+    background-color: transparent;
+    color: darkblue;
+}
+body.index > img.index{
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+body.login{
+    background-color: transparent;
+}
+body.login > img.login{
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+body.search{
+    background-image: url("leather_bag.jpg");
+}
+body.results{
+    background-image: url("leather_bag.jpg");
+}
+body.agreement{
+    background-image: url("leather_bag.jpg");
+}
+body.privacy{
+    background-image: url("leather_bag.jpg");
+}
+body.profile{
+    background-image: url("leather_bag.jpg");
+}
+nav{
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    top: 0;
+    font-size: 3rem;
+}
+div > img{
+    height: 100%;
+    object-fit: cover;
+    align-self: center;
+}
+div.bio > p{
+    color: lightblue;
+    text-align: center;
+    font-size: xxx-large;
+}
+div.logo{
+    font-size: 5rem;
+}
+div.navigation{
+    color:lightblue;
+}
+div.navigation:hover{
+    color:white;
+}
+div.navigation::after{
+    content: "";
+    display: block;
+    height: 3px;
+    background: #a0ebfd;
+    width: 0;
+    transition: all ease-in-out 300ms;
+}
+div.navigation:hover::after{
+    width: 100%;
+}
+div.staff{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 30vw));
+    grid-template-rows: repeat(3, minmax(200px, .5fr)  minmax(200px, .25fr));
+    grid-gap: 16px;
+    align-items: end;
+    justify-items: center;
+}
+body.auction > main.auction_top{
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    z-index: 2;
+    max-width: 90%;
+}
+body.auction > main.auction_bottom{
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    z-index: 2;
+    max-width: 90%;
+}
+body.auction > main.auction_top > section.auction{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+body.auction > section.auction_bottom > section.auction{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+h1{
+    font-size: 10rem;
+}
+.hidden {
+    display: none;
+}
+.tabs {
+    overflow: hidden;
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+}
+#signin{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+}
