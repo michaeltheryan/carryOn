@@ -1,0 +1,19 @@
+* {
+    color: white;
+    font-family: "Helvetica Neue", sans-serif;
+}
+body{
+    background-color: #0098DB;
+}
+h1{
+    font-size: 5vw;
+}
+h2{
+    font-size: 4vw;
+}
+h3{
+    font-size: 3vw;
+}
+p, li {
+    font-size: 2vw;
+}
