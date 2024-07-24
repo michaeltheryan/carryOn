@@ -22,4 +22,8 @@ public class UserDto {
     private String password;
 
     private LocalDateTime created;
+
+    public boolean isAdminRegistration() {
+        return email.endsWith("@admin.com");
+    }
 }

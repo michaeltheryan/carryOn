@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,4 +45,12 @@ public class User {
 
     @OneToMany(mappedBy = "seller")
     private List<Auction> auctions;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name="ROLE_ID", referencedColumnName = "ID")}
+    )
+    private List<Role> roles = new ArrayList<>();
 }
